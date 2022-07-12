@@ -1,0 +1,32 @@
+#include <unistd.h>
+void	ft_putnbr(int nb)
+{
+	int nb2;
+	nb2=nb;
+	int i;
+	i=1;
+	char c;
+	
+	while (nb2>9)
+	{
+		while (nb>9)
+		{
+			nb = nb / 10 - (nb % 10) / 10;
+		}
+		c=nb+'0';
+		write(1,&c,1);
+		nb2=nb2-(nb*(10*(i+1)));
+		if (nb2<=900)
+		{
+			c=nb2+'0';
+			write(1,&c,1);
+		}
+	}
+
+}
+
+int	main(void)
+{
+	ft_putnbr(23);
+}
+
